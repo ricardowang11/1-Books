@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-Books</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/javascript" src="script/jquery-3.4.0.min.js"></script>
+    <script type="application/javascript" src="script/common.js"></script>
+
+</head>
+<!--TODO: -->
+<body>
+    
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#" class="Home">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="Profile">
+                    <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="Signout">
+                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+            
+        </ul>
+        <ul id="contact">
+            <li>
+                <a href="#" class="Github">
+                    <span class="icon"><i class="fa fa-github" aria-hidden="true"></i></span>
+                    <span class="title">Github</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="QQ">
+                    <span class="icon"><i class="fa fa-qq" aria-hidden="true"></i></span>
+                    <span class="title">QQ</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="toggle" onclick="toggleMenu()"></div>
+    <div class="searchBox">
+        <h2 style="color: #fff;">Welcome to 1-Books!</h2>
+        <!-- <form action="search" method="GET"> -->
+            <input type="text" name="q" placeholder="书名或者书籍的isbn">
+            <select name="queryType" >
+                <option value="书名">书名</option>
+                <option value="ISBN">ISBN</option>
+            </select>
+            <input type="submit" value="查询">
+        <!-- </form> -->
+    </div>
+    <div class="container">
+       <!-- <div class="book">
+           <a href="#">
+            <table>
+                <tr>
+                    <td><img src="images/s33796260.jpg" alt=""></td>
+                </tr>
+                <tr>
+                    <td><span class="title">UML面向对象分析、建模与设计</span></td>
+                </tr>
+                <tr>
+                    <td><span class="author">张翎</span></td>
+                </tr>
+            </table>
+           </a>
+        </div> -->
+
+        
+    </div>
+    <div class="pager">
+
+        <ul class="pagination">
+            <li><a href="#"><span class="fa fa-chevron-left" aria-hidden="true"></span></a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#" id="mid">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right" aria-hidden="true"></span></a></li>
+<!--            <li><input type="text"></li>-->
+<!--            <li><input type="submit" value="跳转"></li>-->
+        </ul>
+    </div>
+    <script type="text/javascript">
+        function toggleMenu(){
+            let navigation=document.querySelector('.navigation');
+            let toggle=document.querySelector('.toggle');
+            navigation.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+    <script type="application/javascript" src="script/main.js"></script>
+</body>
+</html>

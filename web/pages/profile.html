@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/javascript" src="script/jquery-3.4.0.min.js"></script>
+    <script type="application/javascript" src="script/common.js"></script>
+    <title>Profile</title>
+</head>
+<a href="" target="_blank"></a>
+<body>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#" class="Home">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="Profile">
+                    <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="Upload">
+                    <span class="icon"><i class="fa fa-upload" aria-hidden="true"></i></span>
+                    <span class="title">Upload</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="Favorite">
+                    <span class="icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+                    <span class="title">Favorite</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="Signout">
+                    <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+
+        </ul>
+        <ul id="contact">
+            <li>
+                <a href="#" class="Github">
+                    <span class="icon"><i class="fa fa-github" aria-hidden="true"></i></span>
+                    <span class="title">Github</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="QQ">
+                    <span class="icon"><i class="fa fa-qq" aria-hidden="true"></i></span>
+                    <span class="title">QQ</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="toggle" onclick="toggleMenu()"></div>
+    <div class="profile">
+        <table>
+            <tr>
+                <td><span>用户名</span></td>
+                <td><input type="text" name="username" placeholder="username" readonly></td>
+            </tr>
+            <tr>
+                <td><span>邮箱地址</span></td>
+                <td><input type="text" name="email" placeholder="email" readonly></td>
+            </tr>
+            <tr>
+                <td><span>手机号</span></td>
+                <td><input type="text" name="phone" placeholder="phone" readonly></td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        function toggleMenu(){
+            let navigation=document.querySelector('.navigation');
+            let toggle=document.querySelector('.toggle');
+            navigation.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+    <script type="text/javascript">
+        $.ajax({
+            url:"getUser",
+            dataType:"json",
+            success:function (ret) {
+                $(".profile input[name=username]").val(ret.username);
+                $(".profile input[name=email]").val(ret.email);
+                $(".profile input[name=phone]").val(ret.phone);
+            }
+        })
+    </script>
+</body>
+</html>

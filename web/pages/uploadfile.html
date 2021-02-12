@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/javascript" src="script/jquery-3.4.0.min.js"></script>
+    <script type="application/javascript" src="script/common.js"></script>
+    <title>Upload</title>
+</head>
+<body>
+<div class="navigation">
+    <ul>
+        <li>
+            <a href="#" class="Home">
+                <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                <span class="title">Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="Profile">
+                <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                <span class="title">Profile</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="Upload">
+                <span class="icon"><i class="fa fa-upload" aria-hidden="true"></i></span>
+                <span class="title">Upload</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="Favorite">
+                <span class="icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+                <span class="title">Favorite</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="Signout">
+                <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                <span class="title">Sign out</span>
+            </a>
+        </li>
+
+    </ul>
+    <ul id="contact">
+        <li>
+            <a href="#" class="Github">
+                <span class="icon"><i class="fa fa-github" aria-hidden="true"></i></span>
+                <span class="title">Github</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="QQ">
+                <span class="icon"><i class="fa fa-qq" aria-hidden="true"></i></span>
+                <span class="title">QQ</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="toggle" onclick="toggleMenu()"></div>
+<!--todo:添加文件上传页面-->
+<div class="favorite">
+    <h1>Upload<i class="fa fa-upload" aria-hidden="true"></i></h1>
+    <div class="favoriteContainer">
+
+
+    </div>
+</div>
+<div class="pager">
+
+    <ul class="pagination">
+        <li><a href="#"><span class="fa fa-chevron-left" aria-hidden="true"></span></a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
+        <li><a href="#"><span class="fa fa-chevron-right" aria-hidden="true"></span></a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function toggleMenu() {
+        let navigation = document.querySelector('.navigation');
+        let toggle = document.querySelector('.toggle');
+        navigation.classList.toggle('active');
+        toggle.classList.toggle('active');
+    }
+</script>
+<script type="application/javascript" src="script/uploadfile.js"></script>
+</body>
+</html>

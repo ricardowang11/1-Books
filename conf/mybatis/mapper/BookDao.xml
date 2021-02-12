@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ricardowang.dao.BookDao">
+    <resultMap id="bookMap" type="cn.ricardowang.bean.Book">
+        <result column="book_name" property="name"></result>
+        <result column="book_ISBN" property="ISBN"></result>
+        <result column="book_author" property="author"></result>
+        <result column="book_introduction" property="introduction"></result>
+        <result column="book_URL" property="url"></result>
+        <result column="book_is_confirmed" property="isConfirmed"></result>
+        <result column="book_uploader" property="uploader"></result>
+    </resultMap>
+    <!--    boolean addBookToMain(Book book);-->
+    <!--
+        private String name;
+        private String ISBN;
+        private String author;
+        private String introduction;
+        private String url;
+        private boolean isConfirmed;
+        private int uploader;-->
+    <insert id="addBookToMain">
+        INSERT INTO Books(
+                        book_name,
+                        book_ISBN,
+                        book_author,
+                        book_introduction,
+                        book_URL,
+                        book_is_confirmed,
+                        book_uploader
+        )VALUES (
+                #{name},
+                #{ISBN},
+                #{author},
+                #{introduction},
+                #{url},
+                #{isConfirmed},
+                #{uploader}
+                )
+    </insert>
+<!--    boolean addBook(@Param("ISBN") String ISBN,@Param("tableName") String tableName);-->
+    <insert id="addBook">
+        INSERT INTO #{tableName}(
+                                 ISBN
+        )VALUES (
+                 #{ISBN}
+                        )
+    </insert>
+<!--    boolean confirmBook(String ISBN);-->
+    <update id="confirmBook">
+        UPDATE Books set book_is_confirmed=1 where book_ISBN=#{ISBN}
+    </update>
+<!--    Book getBookWithISBN(String ISBN);-->
+    <select id="getBookWithISBN" resultMap="bookMap">
+        select * from Books where book_ISBN=#{ISBN}
+    </select>
+    <!--    Book getBookWithName(String name);-->
+    <select id="getBookWithName" resultMap="bookMap">
+        select * from Books where book_name=#{name}
+    </select>
+<!--    boolean deleteBookWithISBN(@Param("ISBN")String ISBN,@Param("tableName")String tableName);-->
+    <delete id="deleteBookWithISBN">
+        DELETE FROM #{tableName} where book_ISBN=ISBN
+    </delete>
+<!--    LinkedList<Book> getBooks();-->
+    <select id="getBooks" resultMap="bookMap">
+        select * from Books
+    </select>
+<!--    LinkedList<String> getBooksISBN(String tableName);-->
+    <select id="getBooksISBN" resultType="java.lang.String">
+        select * from #{tableName}
+    </select>
+
+</mapper>

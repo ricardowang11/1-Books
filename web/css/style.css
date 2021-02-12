@@ -1,0 +1,360 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+     /* background: #150019; */
+    background-image: url('../images/background_lake.jpg'); 
+    background-size: 100%; 
+    background-repeat:no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+}
+
+.navigation{
+    position: fixed; 
+    left: 0;
+    width: 60px;
+    height: 100%;
+    background: #3e0748;
+    /* background: #15304B; */
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation:hover, 
+.navigation.active{
+    width: 60px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+}
+.navigation #contact{
+    
+    position:absolute;
+    bottom: 60px;
+    top:auto;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li:hover{
+    background: #ea1d63;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color:#fff;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block; 
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon .fa{
+    font-size: 24px;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block; 
+    padding: 0 10px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+.toggle{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: #330748;
+    cursor: pointer;
+}
+.toggle.active{
+    background: #ea1d63;
+}
+.toggle:before{
+    content: '\f0c9';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+.toggle.active:before{
+    content: '\f00d';
+}
+@media (max-width:900px)
+{
+    .navigation{
+        left: -60px;
+    }
+    .navigation.active{
+        left: 0px;
+        width: 100%;
+    }
+    .searchBox{
+        left: -800px;
+    }
+} 
+/* 搜索框 */
+.searchBox{
+    position: fixed;
+    top: 50px;
+    min-width: 600px;
+}
+.searchBox h2{
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.searchBox input{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+.searchBox input[type="text"]{
+    background: #fff;
+    width: 340px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+}
+.searchBox select{
+    position: relative;
+    left: -3px;
+    border: none;
+    outline: none;
+    background: #fff;
+    font-size: 20px;
+    padding: 11px 16px ;
+    margin: -2px;
+    border-right: 15px solid #fff;
+}
+.searchBox input[type="submit"]{
+    position: relative;
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #ea1d63;
+    color: #fff;
+}
+/* 书籍显示区 */
+.container{
+    z-index: 1;
+    position: fixed;
+    left: 60px;
+    top:250px;
+    width: 100%;
+    height: 80%;
+    /* display:list-item; */
+    /* display:flex; */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+}
+.container .book{
+    width: 15%;
+    float: left;
+    overflow:hidden;
+    white-space: nowrap;
+    border-radius: 8px;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.container table{
+    
+    display:block;
+    border-radius: 8px;
+
+}
+.container tr{
+    /*display:block ;*/
+    text-align: left;
+    width: 100%;
+    margin: 5px;
+}
+.container table img{
+    width: 140px;
+    height: 200px;
+
+}
+
+
+.pager{
+    z-index: 1;
+    position: fixed;
+    display: block;
+    top: 830px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 25px;
+    /* background: #fff; */
+    /* box-shadow: 0px .5vh 5px 0 rgba(0,0,0,0.25); */
+}
+.pagination,
+.pagination li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.pagination li{
+    /* background: #f23b26; */
+    background: #5F6264;
+    /* box-shadow:20px 20px 50px rgba(255, 255, 255, 0.35); */
+    list-style: none;
+    border-radius: 100px;
+    margin-left: 10px;
+}
+.pagination li a{
+    text-decoration: none;
+    color: #fdfdfd;
+    height: 40px;
+    width: 50px;
+    font-size: 18px;
+    padding-top: 1px;
+    /* border: 1px solid rgba(0,0,0,0.25); */
+    border-right-width: 0px;
+    /* box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.35); */
+}
+
+
+
+/* 用户个人信息 */
+.profile{
+    z-index: 1;
+    position: fixed;
+    height: 100%;
+    left: 60px;
+    top: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    
+}
+.profile table{
+    position: fixed;
+    display: block;
+    top: 50px;
+    left: 200px;
+    color: black;
+}
+.profile table td{
+   
+    padding: 5px;
+}
+.profile span{
+    width: 100px;
+    margin-right: -3px;
+    padding-top: 15px;
+    text-align:center;
+    display: inline-block;
+    height: 50px;
+    background: #fff;
+}
+.profile input{
+    margin-left: -10px;
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+.profile input[type="text"]{
+    background: #fff;
+    width: 340px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+}
+.profile input[type="submit"]{
+    position: relative;
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #ea1d63;
+    color: #fff;
+}
+
+
+/* 收藏夹 */
+.favorite{
+    z-index: 1;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 60px;
+    top: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+}
+.favorite h1{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 1000;
+}
+.favoriteContainer{
+    z-index: 1;
+    position: fixed;
+    left: 60px;
+    top:200px;
+    /*width: 100%;*/
+    height: 80%;
+}
+.favoriteContainer .book{
+    width: 15%;
+    float: left;
+    overflow:hidden;
+    white-space: nowrap;
+    border-radius: 8px;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+.favoriteContainer table{
+    
+    display:block;
+    border-radius: 8px;
+
+}
+.favoriteContainer tr{
+    text-align: left;
+    width: 100%;
+    margin: 5px;
+}
+.favoriteContainer table img{
+    width: 140px;
+    height: 200px;
+}
